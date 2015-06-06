@@ -16,7 +16,6 @@ Demo server for students to learn how NodeJS works from client-side to server-si
 ## Note*
 1. Each directory is it's own server.
 2. Server.js is the central file and starting point.
-3. student-rest in progress
 
 
 ## Installation
