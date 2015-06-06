@@ -1,0 +1,32 @@
+#dvUrlResults, #dvJQRequest {
+	border: solid 1px black;
+	height: 100px;
+	width: 300px;
+}
+
+#dvUrlResults {
+	display: inline-block;
+}
+
+.edgePad {
+	margin-left: 10px; 
+}
+
+.avatar, .avHolder {
+	display: block; 
+	float: left; 
+	margin: 0px 10px 0px 10px; 
+	height: 40%;
+}
+
+.avHolder { 
+	height: 325px; 
+	width: 275px;
+}
+
+.errorHeader {
+	font-size: 32px;
+	color: red;
+	text-align: justify;
+	width: 99%;
+}

@@ -1,0 +1,51 @@
+<% include ../header  %>
+
+	<h1 class="edgePad">Add New Student</h1>
+	
+	<hr />
+	
+		<div id="wrapper" style="margin: 0 25px;">
+			<form method="POST" action="Create">
+				
+				<label>First Name</label>
+				<input class="form-control" type="text" name="FirstName" placeholder="First Name" /><br />
+				
+				<label>Last Name</label>
+				<input class="form-control" type="text" name="LastName" placeholder="Last Name" /><br />
+
+				<label>Profile URL</label>
+				<input type="text" name="ProfileImage" class="form-control"
+					   placeholder="http://www.domain.com/img.jpg" /> <br />
+				
+				<label>Hobbies</label><br />
+				<textarea name="Hobby" class="form-control" rows="10"></textarea> <br /><br />
+				
+				
+				<select name="SchoolID" class="form-control">
+				<% 
+					var schools = [ "", "Academy of Innovative Technology", "Brooklyn High School for Law and Technology", "High School-Global Citizenship", 
+									"City Polytechnic High School of Engineering, Architecture, and Technology", "Brooklyn International High School at Waters Edge", 
+									"George Westinghouse High", "Richard R. Green High School of Teaching", "High School for Language and Diplomacy", 
+									"Claremont International High School", "Harlem Village Academy High School", "Cristo Rey High School", 
+									"Manhattan International High School" ]; 
+				
+				for (var i =1; i < schools.length; i++) {
+				%>
+					<option value="<%= i %>"> <%= schools[i] %> </option>
+				<% 
+				} 
+				%>
+				</select>
+				<br /><br clear="all" />
+				
+				<div style="float: right;">
+					<button class="btn btn-warning">Cencel</button>
+					<input class="btn btn-info" type="submit" value="Add" />
+				</div>
+			</form>
+			
+		</div>
+
+
+<% include ../scripts %>
+<% include ../footer %>

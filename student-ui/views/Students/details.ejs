@@ -1,0 +1,46 @@
+<% include ../header  %>
+		
+		<div style="font-size: 24px; font-family: 'Impact', Charcoal, sans-serif; -webkit-text-stroke: 1px black; color: white; text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+
+				<% if(results.ProfileImage && results.ProfileImage != null ) {%>
+					<img src="<%= results.ProfileImage %>" class="avatar" />
+				<% } else { %>
+					<img src="/images/sweat.jpg" class="avatar" />
+				<% } %>
+				
+				<div style="display: inline-block; ">
+				
+				
+				<div>
+					<h1> 
+						<%= results.FirstName %> <%= results.LastName %> 
+						
+						<div class="pull-right">					
+							<a href="/Edit/<%- studentId %>">
+								<button type="button" class="btn btn-info" style="margin-right: 25px;">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+										Edit <%= results.FirstName %>s Profile
+								</button>
+							</a>
+						</div>
+					</h1>
+					
+					    <br clear="all" />						
+						
+						<p> <%= results.Portfolio %> </p>
+				
+						<p><%= results.Hobby %></p> <br /><br clear="all" />
+				
+				
+					School Name: <%= results.Name %><br />
+				
+					Address: <%= results.Address %><br />
+				
+					<a href='<%= results.Website %>' target="_black">Website</a><br />
+				</div>
+
+			
+		</div>
+		
+<% include ../scripts %>
+<% include ../footer %>

@@ -1,0 +1,47 @@
+<% include ../header %>
+
+    <h1><%- subTitle %>
+    <a href="Create">
+    <button type="button" class="btn btn-info pull-right" style="margin-right: 25px;">
+    	<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    	Add New Student
+	</button>
+    </a>
+    </h1>
+    
+    
+ <hr/>
+    <br /><br />
+    
+    <div class="container-fluid">
+    
+    	<div class="row">
+        
+        	<% for( var i=0; i < results.length; i++ ) { %>
+        
+				<a href="/Details/<%= results[i].ID %>">
+					<div id="region"  style=" margin: 8px; width: 225px; display: inline-block;" 
+        	    		class="col-md-4 col-sm-8 col-lg-4">
+						<% if(results[i].ProfileImage){ %>
+                            <img src="<%= results[i].ProfileImage %>" style="width: 100px; min-height: 125px; border:solid 1px gray; " /> 
+                        <% } else { %>
+                         <img src="/images/confused.jpg" style="width: 100px; min-height: 125px; " /> 
+                        <% } %> 
+                     	   
+					 	   
+					 	   <div style="vertical-align: top;"> 
+					 	   	<%= results[i].FirstName %>,
+					 	   	<%= results[i].LastName %>
+					 	   </div>
+					</div>
+        		</a>
+        
+			<% } %>
+		</div>
+    
+    </div>
+    
+<% include ../scripts %>
+
+
+<% include ../footer %>

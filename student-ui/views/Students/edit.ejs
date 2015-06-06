@@ -1,0 +1,83 @@
+<% include ../header  %>
+		
+		<div class="edgePad">
+			<form class="input-group" method="POST">
+				
+				<% if(results.ProfileImage && results.ProfileImage != null ) {%>
+					<img src="<%= results.ProfileImage %>" style="display: block; float: left; border: solid 1px black; margin: 0px 10px 0px 0px; height: 75%;" />
+				<% } %>
+				<div style="display: inline-block; ">
+				
+				<label style="float:left; margin-top: 7px; margin-right: 35px;">ID:</label>
+				<input class="form-control" style="width: 50px;" type="text" name="ID" disabled value="<%= results.ID  %>" /><br /><br clear="all" />
+				
+				<label style="float:left; margin-top: 7px; margin-right: 10px;">Avatar</label>
+				<input type="text" style="position: relative; right: 0px; width: 420px;" name="ProfileImage" 
+					   placeholder="http://www.domain.com/img.jpg" value="<%= results.ProfileImage %>"/> <br clear="all" />
+				
+				<label style="float:left; margin-right: 10px;">First</label>
+				<input class="form-control" type="text" 
+					   name="FirstName" placeholder="First Name" 
+					   value="<%= results.FirstName %>"
+					   style="width: 175px;" /> <br clear="all" />
+				
+				<label style="float:left; margin-right: 10px;">Last</label>
+				<input class="form-control" type="text" 
+						name="LastName" placeholder="Last Name" 
+						value="<%= results.LastName %>"
+						style="width: 175px;" /> <br clear="all" /><br />
+						
+						
+				<input class="form-control" type="text" placeholder="URL to Portfolio Website"
+						value="<%= results.Portfolio %>"/><br /><br clear="all" />
+				
+				<textarea class="form-control" name="Hobby"><%= results.Hobby %></textarea> <br /><br clear="all" />
+				
+				<!-- input type="text" style="width: 20em;" name="SchoolID" value="<%= results.SchoolID %>"/> <br / -->
+				
+				<br />
+				<select name="SchoolID" class="form-control">
+				<% var schools = [ "", "Academy of Innovative Technology", "Brooklyn High School for Law and Technology", "High School-Global Citizenship", 
+									"City Polytechnic High School of Engineering, Architecture, and Technology", "Brooklyn International High School at Waters Edge", 
+									"George Westinghouse High", "Richard R. Green High School of Teaching", "High School for Language and Diplomacy", 
+									"Claremont International High School", "Harlem Village Academy High School", "Cristo Rey High School", 
+									"Manhattan International High School" ]; 
+				
+				for(var i =1; i < schools.length; i++){
+					if(results.SchoolID == i) {
+				%>
+					<option value="<%= i %>" selected> <%= schools[i] %> </option>
+				<% } else {  %>
+					<option value="<%= i %>"> <%= schools[i] %> </option>
+				<% } 
+				}
+				%>
+				</select>
+				<br /><br clear="all" />
+				
+				<button id="btnRemove" type="button" class="btn btn-info btn-danger pull-left">
+					<span class="glyphicon glyphicon-cross" aria-hidden="true"></span>
+						Remove <%= results.FirstName %>
+				</button>
+					
+				<div style="float: right;">
+					
+					<button class="btn btn-warning">Cancel</button>
+					<input class="btn btn-info" type="submit" value="Update" />
+				</div>
+				</div>
+			</form>
+			
+		</div>
+		
+<% include ../scripts %>
+
+<script>
+	$("#btnRemove").click(function() {
+		$.post("/Delete/" + $("[name=ID]").val(), function(res){
+			if(res.status) { window.location.href = "/"; }
+		});
+	});
+</script>
+
+<% include ../footer %>
